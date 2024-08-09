@@ -1,0 +1,33 @@
+Welcome to Bandit! In this first level you will learn the basics for playing the game.
+
+Let's start by reading the hint.
+
+	The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org
+	on port 2220. The username is bandit0 and the password is bandit0.
+
+This hint describes the structure of Bandit levels. The game consists in ssh connection to a server hosted at bandit.labs.overthewire.org on port 2220. In each level you will connect to the server with a defferent user, aiming to get the password for the next user (next level). In other words, for each level there is a user, to get to the next level you need to find the password for the next user.
+
+Having said that, let's connect to the server.
+
+In order to use a ssh (Secure Shell) terminal you need to have both a private and public keys. Luckly there's a linux command that makes this very easy!
+
+	ssh-keygen -t rsa
+
+This command will create both the private key and the public key, with the name you desire. Don't forget your secret passphrase!
+
+Now it's time to connect to the server. Once again a linux command will come handy. We will use ssh command. If you dont have it installed search for "ssh" in your distribution package manager. If you have it already installed, I recommend you read the man pages to the better understand the features of the command beyond this example.
+
+	ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+After submitting your connection request the server will ask you for the password for bandit0 user. Thankfully the hint gave us that information, the password is "bandit0".
+
+Finally we are inside the terminal. Here we can use the shell freely as we would use in our own conputer. However, this shell is being executed in bandit.labs.overthewire.org computer as bandit0 user. So we can use our permissions as bandit0 user to get the password for the next level.First we will use the ls command to see the structure of the home directory.
+
+	ls
+
+This will show us a file called "readme". To see the contents of the file we will use the cat command.
+
+	cat readme
+
+There it is! The password appears in the contents of the file!
+See you again at bandit!
